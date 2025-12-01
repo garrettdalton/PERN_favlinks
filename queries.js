@@ -3,11 +3,11 @@
 const POOL = require('pg').Pool
 
 const pool = new POOL({
-    user:'garrett',
-    host: 'localhost',
-    database: 'favlinks',
-    password: 'pw',
-    port: 5432
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT
 })
 
 //create all the functions that will be our request handlers in our express server
