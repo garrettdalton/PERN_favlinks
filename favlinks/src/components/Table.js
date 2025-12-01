@@ -15,11 +15,13 @@ const TableHeader = () => {
 
 const TableBody = (props) => {
   const rows = props.linkData.map((row) => {
+    // Handle both uppercase and lowercase URL field names
+    const url = row.URL || row.url || ''
     return (
       <tr key={row.id}>
         <td>{row.name}</td>
         <td>
-          <a href={row.URL} target="_blank" rel="noopener noreferrer">{row.URL}</a>
+          <a href={url} target="_blank" rel="noopener noreferrer" style={{ color: '#0066cc', textDecoration: 'underline' }}>{url}</a>
         </td>
         <td>
           <button onClick={() => props.updateLink(row.id)}>Update</button>

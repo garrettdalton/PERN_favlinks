@@ -21,7 +21,7 @@ const createLink = (request, response) =>{
     const name = request.body.name
     const URL = request.body.URL
 
-    pool.query('INSERT INTO links (name, URL) VALUES ($1, $2) RETURNING id',
+    pool.query('INSERT INTO links (name, url) VALUES ($1, $2) RETURNING id',
          [name, URL],
          (error, results) => {
             if(error){
@@ -48,7 +48,7 @@ const updateLink = (request, response) => {
     const { name, URL } = request.body
 
     pool.query(
-        'UPDATE links SET name = $1, URL = $2 WHERE id = $3',
+        'UPDATE links SET name = $1, url = $2 WHERE id = $3',
         [name, URL, id],
         (error, results) => {
             if (error) {

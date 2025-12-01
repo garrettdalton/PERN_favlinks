@@ -8,7 +8,7 @@ const Form = ({ handleSubmit, editingLink }) => {
   useEffect(() => {
     if (editingLink) {
       setName(editingLink.name)
-      setURL(editingLink.URL)
+      setURL(editingLink.URL || editingLink.url || '')
     } else {
       setName('')
       setURL('')
